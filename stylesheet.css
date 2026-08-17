@@ -149,3 +149,155 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+/* ===========================================================================
+   Mobile / responsive.
+
+   The layout is a set of nested <table>s with inline percentage widths, so the
+   phone rules below unwind those cells into stacked blocks. The inline styles
+   are more specific than a stylesheet rule, hence the !important on the
+   properties that have an inline counterpart (width, max-width, padding).
+   Nothing here applies above the breakpoint: the desktop look is unchanged.
+   =========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Stop iOS Safari from inflating text on rotation. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 12px;
+  overflow-wrap: break-word;
+}
+
+/* No image may push the page wider than the viewport. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 0 14px;
+  }
+
+  /* 14px is tight on a phone; nudge up and open the leading. */
+  body,
+  td,
+  th,
+  tr,
+  p,
+  a,
+  strong,
+  .papertitle {
+    font-size: 15px;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  .name {
+    padding-top: 18px;
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  /* ----- Header: photo on top, then name, bio, links ----- */
+  .header,
+  .header > tbody {
+    display: block;
+  }
+
+  .header tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header td {
+    display: block;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .header-photo {
+    order: -1; /* the photo cell is second in source order */
+    max-width: 190px !important;
+    margin: 4px auto 0;
+  }
+
+  .links a,
+  .webring a {
+    /* Roomier tap targets than a bare inline link. */
+    display: inline-block;
+    padding: 6px 2px;
+  }
+
+  .webring a[style*="border"] {
+    padding: 6px 16px !important;
+  }
+
+  /* ----- Section heading ----- */
+  .section td {
+    padding: 16px 0 !important;
+  }
+
+  /* ----- Entries: thumbnail above the text, full-bleed separators ----- */
+  .entries,
+  .entries > tbody,
+  .entries tr,
+  .entries td {
+    display: block;
+    width: auto !important;
+  }
+
+  .entries tr {
+    /* Bleed into the body padding so a highlighted row spans the screen. */
+    margin: 0 -14px;
+    padding: 18px 14px;
+  }
+
+  .entries tr + tr {
+    border-top: 1px solid #ececec;
+  }
+
+  .entries td {
+    padding: 0 !important;
+  }
+
+  .entry-media {
+    text-align: center;
+  }
+
+  /* Sized off the container, not the width attribute, so the reserved space
+     matches the rendered size and the row does not shift on load. */
+  .entry-media img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .entry-media p {
+    max-width: 44ch;
+    margin: 6px auto 0 !important;
+  }
+
+  .entry-body {
+    padding-top: 12px !important;
+  }
+
+  /* ----- Footer ----- */
+  .footer p {
+    text-align: left !important;
+  }
+}
