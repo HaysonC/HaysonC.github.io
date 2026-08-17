@@ -213,6 +213,27 @@ img {
     font-size: 20px;
   }
 
+  /* Unwind every table wrapper to blocks. Leaving the outer .page as a real
+     table lets the auto table algorithm factor the full-bleed negative margins
+     below into its intrinsic width, which pushes the whole page wider than the
+     viewport and clips the right edge. */
+  .page,
+  .page > tbody,
+  .page > tbody > tr,
+  .page > tbody > tr > td,
+  .section,
+  .section > tbody,
+  .section tr,
+  .section td,
+  .footer,
+  .footer > tbody,
+  .footer tr,
+  .footer td {
+    display: block;
+    width: auto !important;
+    max-width: none !important;
+  }
+
   /* ----- Header: photo on top, then name, bio, links ----- */
   .header,
   .header > tbody {
@@ -231,7 +252,9 @@ img {
     padding: 0 !important;
   }
 
-  .header-photo {
+  /* Needs to out-specify the `.header td` reset above, not just the inline
+     max-width:37%, so it is qualified with the element. */
+  .header td.header-photo {
     order: -1; /* the photo cell is second in source order */
     max-width: 190px !important;
     margin: 4px auto 0;
