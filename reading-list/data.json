@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Attention Is All You Need",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "meta": "Vaswani et al., NeurIPS 2017",
+    "thoughts": "The one that got rid of recurrence entirely. Mock entry for now — everything downstream of this, including how spatial models tokenize and attend over patches, traces back here."
+  }
+]

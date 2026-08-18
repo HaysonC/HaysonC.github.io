@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hayson's Most Awesome List of Spatial Intelligence Papers</title>
+    <meta name="description" content="A running reading list of spatial intelligence papers — links and a few thoughts on each.">
+    <meta name="author" content="Hayson Cheung">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hayson.me/reading-list/">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="../images/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../images/icon.png">
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+
+    <style>
+      body {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 40px 16px 60px;
+      }
+      h1, h3 {
+        font-family: 'Lato', Verdana, Helvetica, sans-serif;
+        font-weight: normal;
+      }
+      h1 {
+        font-size: 26px;
+        margin: 0 0 4px;
+      }
+      .subtitle {
+        color: #666;
+        font-size: 13px;
+        margin: 0 0 8px;
+      }
+      .top-links {
+        font-size: 13px;
+        margin: 0 0 24px;
+      }
+      .entry {
+        margin: 0 0 28px;
+      }
+      .entry h3 {
+        font-size: 16px;
+        margin: 0 0 2px;
+      }
+      .entry .meta {
+        color: #666;
+        font-size: 13px;
+        margin: 0 0 6px;
+      }
+      .entry p {
+        margin: 0;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #ececec;
+        margin: 0 0 28px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="top-links"><a href="../index.html">&larr; hayson.me</a></p>
+
+    <h1>Hayson's Most Awesome List of Spatial Intelligence Papers</h1>
+    <p class="subtitle">papers I'm reading, with a few thoughts. <span id="updated-hook" style="cursor:default;user-select:none;">updated</span> occasionally.</p>
+
+    <hr>
+
+    <div id="entries"></div>
+
+    <script>
+      fetch('data.json')
+        .then(function (r) { return r.json(); })
+        .then(function (entries) {
+          var container = document.getElementById('entries');
+          entries.forEach(function (e) {
+            var div = document.createElement('div');
+            div.className = 'entry';
+            div.innerHTML =
+              '<h3><a href="' + e.url + '" target="_blank" rel="noopener"></a></h3>' +
+              '<div class="meta"></div>' +
+              '<p></p>';
+            div.querySelector('h3 a').textContent = e.title;
+            div.querySelector('.meta').textContent = e.meta || '';
+            div.querySelector('p').textContent = e.thoughts || '';
+            container.appendChild(div);
+          });
+        });
+
+      (function () {
+        var hook = document.getElementById('updated-hook');
+        var clicks = 0;
+        var resetTimer = null;
+        hook.addEventListener('click', function () {
+          clicks++;
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(function () { clicks = 0; }, 1500);
+          if (clicks >= 3) {
+            clicks = 0;
+            window.open('https://github.com/HaysonC/HaysonC.github.io/edit/main/reading-list/data.json', '_blank', 'noopener');
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
