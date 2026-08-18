@@ -1,8 +1,8 @@
 [
   {
-    "title": "Attention Is All You Need",
-    "url": "https://arxiv.org/abs/1706.03762",
-    "meta": "Vaswani et al., NeurIPS 2017",
-    "thoughts": "The one that got rid of recurrence entirely. Mock entry for now — everything downstream of this, including how spatial models tokenize and attend over patches, traces back here."
+    "title": "The Platonic Representation Hypothesis",
+    "url": "https://arxiv.org/abs/2405.07987",
+    "meta": "Huh et. al, ICML 2024",
+    "thoughts": "Multimodality could be achieved with relatveily little or even no (demonstrated by downstream vec2vec) pairs of representations. Especially useful for 3D since this points to learning that scaling the raw volume of 3D data can lead to exploitable structures we can use for general intelligence, with very sparse 3D alignment data general avalaible."  
   }
 ]
