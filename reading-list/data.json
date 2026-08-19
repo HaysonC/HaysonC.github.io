@@ -2,14 +2,14 @@
   {
     "title": "The Platonic Representation Hypothesis",
     "url": "https://arxiv.org/abs/2405.07987",
-    "meta": "Huh et. al, ICML 2024",
-    "thoughts": "Multimodality could be achieved with relatveily little or even no (demonstrated by downstream vec2vec) pairs of representations. Especially useful for 3D since this points to learning that scaling the raw volume of 3D data can lead to exploitable structures we can use for general intelligence, with very sparse 3D alignment data general avalaible."  
+    "meta": "Huh et al., ICML 2024",
+    "thoughts": "Multimodality could be achieved with relatively little or even no (as demonstrated by downstream vec2vec) pairs of representations. Especially useful for 3D, since this points to learning that scaling the raw volume of 3D data can lead to exploitable structures we can use for general intelligence, with very sparse 3D alignment data generally available."
   },
   {
     "title": "Native and Compact Structured Latents for 3D Generation (Trellis 2 paper)",
     "url": "https://arxiv.org/abs/2512.14692",
-    "meta": "Microsoft made a really good model for 3d",
-    "thoughts": "Really good model that demonstrated that a field-free, hierarchical representation that tries to represent the entire spatial structure is superior. A lot of my work is based on the ideas in Trellis,2 and the model itself is pretty good" 
+    "meta": "Microsoft made a really good model for 3D",
+    "thoughts": "A really good model that demonstrated that a field-free, hierarchical representation that tries to represent the entire spatial structure is superior. A lot of my work is based on the ideas in Trellis 2."
   
   }
 ]
